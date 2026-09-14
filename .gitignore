@@ -1,0 +1,19 @@
+# Material fuente de la cátedra y transcripciones de clase.
+# No se publica: son PDFs del Dr. Oscar Bruno y grabaciones donde
+# se escuchan nombres de compañeros de cursada.
+fuentes/
+
+# Readme local de la carpeta (en el repo va README.md)
+L*EME.md
+
+# Sistema operativo / editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Temporales
+*.tmp
+*.bak
+~$*
