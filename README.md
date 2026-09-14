@@ -4,7 +4,7 @@
 
 **An interactive, single-file study guide for Algorithms & Data Structures.**
 
-Built from the recorded lectures and course notes of *Algoritmos y Estructuras de Datos* at **UTN Facultad Regional Buenos Aires**. It walks the whole subject in five parts: data in memory, then on disk, then data that grows while the program runs.
+Built from the recorded lectures and course notes of a university *Algoritmos y Estructuras de Datos* course. It walks the whole subject in five parts: data in memory, then on disk, then data that grows while the program runs.
 
 [**Open the guide →**](https://juanm4ram.github.io/algorithms-data-structures-roadmap/)
 
@@ -19,17 +19,23 @@ Built from the recorded lectures and course notes of *Algoritmos y Estructuras d
 
 <br>
 
-<img src="docs/preview-guia.png" alt="The guide showing a part opening and the running thread of the subject" width="880">
+<img src="docs/roadmap.svg" alt="The five parts of the course: data and its shape, arrays, files, dynamic memory, integration" width="900">
 
 </div>
 
 ---
 
-## Preview
+## Two figures from the guide
 
-| Stepping through a figure | A program explained function by function |
-|---|---|
-| <img src="docs/preview-figura.png" alt="Interactive figure being executed step by step" width="420"> | <img src="docs/preview-caso.png" alt="Full program broken down function by function" width="420"> |
+Every diagram is built in the browser and stepped through with buttons. These two are lifted straight from it.
+
+**Pointers.** Two cells in memory: the pointer holding an address, and the value it points at.
+
+<img src="docs/punteros.svg" alt="Memory diagram: variable x holding 99, pointer p holding the address of x, and y receiving 99 through the pointer" width="640">
+
+**A list of lists.** A file of students read into a list of divisions, each one carrying its own sublist sorted by student number.
+
+<img src="docs/lista-de-listas.svg" alt="Two-level structure: main list of divisions, each pointing to its own sublist of students sorted by number" width="900">
 
 ---
 
@@ -114,7 +120,7 @@ The file is self-contained on purpose: a study guide you cannot open during a po
 
 ## Sources and attribution
 
-Built from transcripts of the recorded lectures, the course notes (Units 01–10, Dr. Oscar Bruno) and past exams.
+Built from transcripts of the recorded lectures, the course notes (Units 01–10) and past exams.
 
 **That source material is deliberately not included in this repository.** It is not mine to publish, and the transcripts contain the voices of teaching staff and fellow students. What is published here is the guide itself, which is my own work based on those contents.
 

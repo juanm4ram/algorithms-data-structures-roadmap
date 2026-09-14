@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AyED Copiloto · UTN FRBA</title>
+<title>AyED Copiloto · Algoritmos y Estructuras de Datos</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23faf8f3'/><text x='16' y='24' font-family='Georgia,serif' font-size='22' font-weight='600' fill='%231f5490' text-anchor='middle'>A</text></svg>">
 <style>
 :root{
@@ -175,7 +175,7 @@ footer{color:var(--muted);font-size:.8rem;padding:30px 0 0;border-top:1px solid 
 <div id="app">
 <aside>
   <div class="brand">AyED <span>Copiloto</span></div>
-  <div class="sub">Algoritmos y Estructuras de Datos · UTN FRBA<br>Clases 01–09, curso K1202 y apuntes de cátedra</div>
+  <div class="sub">Algoritmos y Estructuras de Datos<br>Clases grabadas y apuntes de la materia</div>
   <div class="progressbar"><div id="pbar"></div></div>
   <div class="nav-group">I · Fundamentos</div>
   <nav>
@@ -308,7 +308,7 @@ footer{color:var(--muted);font-size:.8rem;padding:30px 0 0;border-top:1px solid 
       <p>Toda variable tiene <b>nombre</b>, <b>valor</b> (según su tipo) y <b>dirección de memoria</b> — esta tercera parte es la clave para entender punteros.</p>
     </div>
   </div>
-  <div class="note"><b>Que tenga dígitos no lo convierte en un número.</b> Si un dato identifica pero no se suma ni se calcula —EAN, DNI, teléfono, código postal— conviene una cadena. En K1202 se trabajó con un EAN de 13 dígitos: <code>char ean[13+1]</code>; el espacio extra guarda el <code>'\0'</code>. Así también se preservan ceros iniciales y se evita desbordar un <code>int</code>.</div>
+  <div class="note"><b>Que tenga dígitos no lo convierte en un número.</b> Si un dato identifica pero no se suma ni se calcula —EAN, DNI, teléfono, código postal— conviene una cadena. En clase se trabajó con un EAN de 13 dígitos: <code>char ean[13+1]</code>; el espacio extra guarda el <code>'\0'</code>. Así también se preservan ceros iniciales y se evita desbordar un <code>int</code>.</div>
 
   <h3>Patrones de control</h3>
   <p>Son las herramientas que deciden <em>qué</em> instrucciones se ejecutan, <em>cuándo</em> y <em>cuántas veces</em>: condicionales (<code>if</code>, <code>if/else</code>, <code>else if</code>, operador ternario, <code>switch</code>) y bucles (<code>for</code>, <code>while</code>, <code>do while</code>).</p>
@@ -397,8 +397,8 @@ alumno.fecha.d  = <span class="n">15</span>;    <span class="c">// punto encaden
 
 <!-- ============ PUNTEROS ============ -->
 <section id="punteros">
-  <h2><span class="chip clase">Curso K1202 · 22/08</span> Punteros: quién puede modificar un dato</h2>
-  <p class="lead">La clase K1202 construye el modelo desde memoria y direcciones; después lo aplica a <code>new</code>/<code>delete</code>, nodos, pilas, colas y listas. Esta sección separa las tres cosas que suelen confundirse: el puntero, la dirección que guarda y el dato apuntado.</p>
+  <h2><span class="chip clase">Clase grabada · 22/08</span> Punteros: quién puede modificar un dato</h2>
+  <p class="lead">La clase construye el modelo desde memoria y direcciones; después lo aplica a <code>new</code>/<code>delete</code>, nodos, pilas, colas y listas. Esta sección separa las tres cosas que suelen confundirse: el puntero, la dirección que guarda y el dato apuntado.</p>
 
   <h3>La idea en una imagen</h3>
   <p>Toda variable ocupa una dirección de memoria. Un <span class="cpt" data-t="puntero">puntero</span> es una variable cuyo <b>valor es la dirección de otra variable</b>. Dos operadores: <code>&amp;</code> responde <b>dónde vive</b> una variable, y <code>*</code> hace lo inverso, va hasta esa dirección y trae el dato que hay ahí.</p>
@@ -501,7 +501,7 @@ p = <span class="k">new</span> <span class="t">int</span>;       <span class="c"
     </ul>
   </div>
 
-  <h3 id="memoria-dinamica"><span class="chip clase" style="font-size:.62rem">K1202</span> Memoria dinámica: new, delete y el operador flecha</h3>
+  <h3 id="memoria-dinamica"><span class="chip clase" style="font-size:.62rem">Clase grabada</span> Memoria dinámica: new, delete y el operador flecha</h3>
   <p>Un puntero declarado sin inicializar contiene un valor indeterminado: <b>no es seguro asumir que vale 0</b>. Inicializalo en <code>NULL</code> hasta tener una dirección válida. Con <span class="cpt" data-t="new">new</span> pedís memoria <b>en tiempo de ejecución</b>; recién entonces podés desreferenciarlo. Siempre hay <b>dos espacios</b>: el puntero (guarda una dirección) y el espacio apuntado (guarda el dato).</p>
   <div class="grid2">
     <div>
@@ -521,7 +521,7 @@ q-&gt;id = <span class="n">2</span>;      <span class="c">// equivale a (*q).id 
       <div class="warn"><b><code>delete</code> es tu responsabilidad.</b> Las variables automáticas se liberan al salir de su ámbito; C++ no usa un recolector de basura para estos nodos. La memoria pedida con <code>new</code> vive hasta que hagas <code>delete</code>. Después, <code>p</code> queda <b>colgando</b>: ponerlo en <code>NULL</code> evita reutilizar accidentalmente una dirección inválida. En pilas y colas, <b>desapilar/desencolar incluye el <code>delete</code></b>.</div>
     </div>
   </div>
-  <div class="prof">Clase K1202 (punteros): <em>"un puntero es un nuevo tipo de dato que guarda un hexadecimal, y ese hexadecimal es la dirección de otra variable. Siempre están los dos espacios: el que contiene la dirección, y el lugar apuntado donde está el dato — que puede ser un entero, un float o un struct entero."</em> La ventaja de todo esto es que habilita las <span class="cpt" data-t="dinamica2">estructuras dinámicas</span>: pido memoria a medida que la necesito, sin fijar un tamaño de antemano como en el vector.</div>
+  <div class="prof">Sobre punteros: <em>"un puntero es un nuevo tipo de dato que guarda un hexadecimal, y ese hexadecimal es la dirección de otra variable. Siempre están los dos espacios: el que contiene la dirección, y el lugar apuntado donde está el dato — que puede ser un entero, un float o un struct entero."</em> La ventaja de todo esto es que habilita las <span class="cpt" data-t="dinamica2">estructuras dinámicas</span>: pido memoria a medida que la necesito, sin fijar un tamaño de antemano como en el vector.</div>
 
   <div class="quiz card" data-quiz="q-ptr">
     <h4 style="margin-top:0">Comprobá que entendiste</h4>
@@ -1101,7 +1101,7 @@ m[<span class="n">1</span>][<span class="n">2</span>] = <span class="n">8</span>
 </div>
 
 <section id="listas">
-  <h2><span class="chip clase">Curso K1202</span> Listas enlazadas</h2>
+  <h2><span class="chip clase">Clase grabada</span> Listas enlazadas</h2>
   <p class="lead">El tema central del segundo parcial y del final. Una lista se arma con el mismo nodo que una pila o una cola, con la diferencia de que acá podés insertar y sacar donde quieras.</p>
 
   <h3>Estático vs dinámico</h3>
@@ -1148,7 +1148,7 @@ m[<span class="n">1</span>][<span class="n">2</span>] = <span class="n">8</span>
   </div>
 
   <h3>insertarOrdenado: los tres casos</h3>
-  <p>Toda la lógica de mantener la lista ordenada al insertar se reduce a <b>tres casos</b> (K1202, 12-09). La función recibe la lista <b>por referencia</b> (<code>Nodo*&amp;</code>, porque el puntero puede cambiar) y la <b>info</b>; el armado del nodo lo hace ella.</p>
+  <p>Toda la lógica de mantener la lista ordenada al insertar se reduce a <b>tres casos</b> (clase del 12-09). La función recibe la lista <b>por referencia</b> (<code>Nodo*&amp;</code>, porque el puntero puede cambiar) y la <b>info</b>; el armado del nodo lo hace ella.</p>
   <div class="grid2">
     <div>
       <div class="card" style="margin-top:0"><b>Caso 1 — lista vacía</b> (<code>lista == NULL</code>): creo el nodo, su <code>sig</code> apunta a NULL (que es lo que vale la lista), y la lista pasa a apuntarlo.</div>
@@ -1199,7 +1199,7 @@ m[<span class="n">1</span>][<span class="n">2</span>] = <span class="n">8</span>
     <tr><td>No sé cuántos grupos aparecerán o sus IDs son dispersos</td><td><b>Lista de listas</b></td><td><code>insertarSinRepetir</code> encuentra o crea el grupo y devuelve su nodo</td></tr>
   </table>
 
-  <h4>Lista de listas: el molde completo de K1202</h4>
+  <h4>Lista de listas: el molde completo visto en clase</h4>
   <div class="grid2">
     <div>
 <pre><code><span class="c">// Declarar de abajo hacia arriba</span>
@@ -1580,7 +1580,7 @@ g-&gt;info.cantidad++;</code></pre>
 
 <!-- ============ PILAS Y COLAS ============ -->
 <section id="pilascolas">
-  <h2><span class="chip clase">Curso K1202</span> Pilas y colas: listas con reglas</h2>
+  <h2><span class="chip clase">Clase grabada</span> Pilas y colas: listas con reglas</h2>
   <p class="lead">Mismo nodo que la lista, mismas flechas, pero con casi todas las operaciones prohibidas. Lo único que cambia es el orden en que se guarda y se recupera, y de ahí sale todo lo que sirven.</p>
 
   <div class="exam"><b>Regla que reprueba un parcial si se rompe</b> (dicha textual en clase): pila y cola <b>NUNCA, JAMÁS se recorren</b>. Con una pila solo podés hacer <b>tres</b> cosas: preguntar si está vacía (<code>== NULL</code>), <b>apilar</b> y <b>desapilar</b>. Con una cola: preguntar si está vacía, <b>encolar</b> y <b>desencolar</b>. Recorrer una pila/cola, o pasar una cola con un solo puntero, es "examen anulado, un 2 fijo".</div>
@@ -1677,7 +1677,7 @@ g-&gt;info.cantidad++;</code></pre>
     <span class="k">while</span>(aux != <span class="t">NULL</span>)
         <span class="f">push</span>(pila, <span class="f">pop</span>(aux)); <span class="c">// restauro A y B</span>
 }</code></pre>
-  <div class="note"><b>La inversión puede ser el objetivo, no un problema.</b> En el ejercicio de K1202 con una cadena como <code>ABC.CBA</code>, se apila lo que está antes del punto y después se compara cada carácter restante con un <code>pop</code>. La propiedad LIFO entrega <code>C</code>, <code>B</code>, <code>A</code> sin índices hacia atrás ni una segunda copia del vector.</div>
+  <div class="note"><b>La inversión puede ser el objetivo, no un problema.</b> En el ejercicio de clase con una cadena como <code>ABC.CBA</code>, se apila lo que está antes del punto y después se compara cada carácter restante con un <code>pop</code>. La propiedad LIFO entrega <code>C</code>, <code>B</code>, <code>A</code> sin índices hacia atrás ni una segunda copia del vector.</div>
 
   <h3>Cola: por qué necesita DOS punteros</h3>
   <p>En una pila entra y sale por el mismo lado, así que alcanza un puntero. En una cola <b>entra por el fondo y sale por el frente</b> — y como no se puede recorrer, necesito <b>dos punteros</b>: <code>frente</code> (de dónde saco) y <code>fin</code> (dónde engancho al que llega). Ambos inician en <code>NULL</code>.</p>
@@ -1718,7 +1718,7 @@ g-&gt;info.cantidad++;</code></pre>
     <div class="note">La cola tiene dos excepciones simétricas: al <b>encolar el primero</b>, frente y fin apuntan al mismo nodo; al <b>desencolar el último</b>, ambos vuelven a <code>NULL</code>.</div>
   </div></details>
 
-  <div class="prof">Clase K1202: <em>"si tenés una cola y le pasás un solo puntero, eso es directamente un examen anulado, un 2 fijo. Van dos punteros: frente y fin."</em></div>
+  <div class="prof"><em>"Si tenés una cola y le pasás un solo puntero, eso es directamente un examen anulado, un 2 fijo. Van dos punteros: frente y fin."</em></div>
 
   <div class="exam"><b>Aparear colas es más delicado que aparear vectores o listas.</b> Las colas deben estar ordenadas, pero no podés mirar <code>frente-&gt;info</code>: tenés que <code>desencolar</code> y conservar cada cabeza en una variable. Una cola puede quedar en <code>NULL</code> y, aun así, quedar un dato pendiente en esa variable. Por eso el control del apareo considera <b>dos estados</b>: si quedan nodos y si ya hay una cabeza extraída sin procesar. El resultado se construye únicamente con <code>encolar</code>.</div>
 
@@ -1959,7 +1959,7 @@ g-&gt;info.cantidad++;</code></pre>
   </div>
   <div class="thread">Si tuvieras que quedarte con una sola frase de toda la materia, que sea esta: los patrones no cambian, cambia cómo se accede al dato. Cuando en el examen no sepas por dónde empezar, preguntate qué estructura tenés, cómo se llega a un elemento y cómo se avanza al siguiente. El resto ya lo sabés.</div>
 
-  <footer>Guía armada sobre las transcripciones de clase (01–09 y curso K1202), los apuntes de cátedra (Unidades 01–10, Dr. Oscar Bruno) y el final del 06/03/2023.<br>Algoritmos y Estructuras de Datos · UTN Facultad Regional Buenos Aires</footer>
+  <footer>Guía armada sobre las transcripciones de las clases grabadas, los apuntes de la materia (Unidades 01–10) y un final resuelto.<br>Algoritmos y Estructuras de Datos</footer>
 </section>
 </main>
 </div>

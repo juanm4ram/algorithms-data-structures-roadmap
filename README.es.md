@@ -4,7 +4,7 @@
 
 **Guía interactiva de Algoritmos y Estructuras de Datos, en un solo archivo.**
 
-Armada a partir de las clases grabadas y los apuntes de cátedra de *Algoritmos y Estructuras de Datos*, **UTN Facultad Regional Buenos Aires**. Recorre la materia entera en cinco partes: el dato en memoria, después en disco, y después el dato que crece mientras el programa corre.
+Armada a partir de las clases grabadas y los apuntes de una materia universitaria de *Algoritmos y Estructuras de Datos*. Recorre la materia entera en cinco partes: el dato en memoria, después en disco, y después el dato que crece mientras el programa corre.
 
 [**Abrir la guía →**](https://juanm4ram.github.io/algorithms-data-structures-roadmap/)
 
@@ -17,17 +17,23 @@ Armada a partir de las clases grabadas y los apuntes de cátedra de *Algoritmos 
 
 <br>
 
-<img src="docs/preview-guia.png" alt="La guía mostrando la apertura de una parte y el hilo conductor de la materia" width="880">
+<img src="docs/roadmap.svg" alt="Las cinco partes de la materia: el dato y su forma, vectores, archivos, memoria dinámica, integración" width="900">
 
 </div>
 
 ---
 
-## Vista previa
+## Dos figuras de la guía
 
-| Una figura ejecutándose paso a paso | Un programa explicado función por función |
-|---|---|
-| <img src="docs/preview-figura.png" alt="Figura interactiva ejecutándose paso a paso" width="420"> | <img src="docs/preview-caso.png" alt="Programa completo desglosado función por función" width="420"> |
+Todos los diagramas se construyen en el navegador y se recorren con botones. Estos dos están sacados tal cual de ahí.
+
+**Punteros.** Los dos espacios en memoria: el puntero que guarda una dirección y el dato al que apunta.
+
+<img src="docs/punteros.svg" alt="Diagrama de memoria: la variable x con 99, el puntero p con la dirección de x, e y recibiendo 99 a través del puntero" width="640">
+
+**Lista de listas.** Un archivo de alumnos leído hacia una lista de divisiones, cada una con su sublista ordenada por legajo.
+
+<img src="docs/lista-de-listas.svg" alt="Estructura de dos niveles: lista principal de divisiones, cada una apuntando a su sublista de alumnos ordenada por legajo" width="900">
 
 ---
 
@@ -112,7 +118,7 @@ El archivo es autocontenido a propósito: una guía de estudio que no podés abr
 
 ## Fuentes y atribución
 
-Construida a partir de las transcripciones de las clases grabadas, los apuntes de cátedra (Unidades 01 a 10, Dr. Oscar Bruno) y exámenes de años anteriores.
+Construida a partir de las transcripciones de las clases grabadas, los apuntes de la materia (Unidades 01 a 10) y exámenes de años anteriores.
 
 **Ese material fuente no se incluye en este repositorio, a propósito.** No es de mi autoría y las transcripciones contienen intervenciones de docentes y compañeros de cursada. Lo que se publica acá es la guía, que sí es una elaboración propia sobre esos contenidos.
 
