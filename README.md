@@ -1,65 +1,135 @@
+<div align="center">
+
 # Algorithms & Data Structures Roadmap
 
-Guía interactiva de **Algoritmos y Estructuras de Datos** (UTN Facultad Regional Buenos Aires), armada a partir de las clases grabadas de la materia y los apuntes de cátedra.
+**An interactive, single-file study guide for Algorithms & Data Structures.**
 
-Es un único archivo HTML autocontenido: se abre con doble clic, funciona sin internet, sin instalación y sin dependencias.
+Built from the recorded lectures and course notes of *Algoritmos y Estructuras de Datos* at **UTN Facultad Regional Buenos Aires**. It walks the whole subject in five parts: data in memory, then on disk, then data that grows while the program runs.
 
-> **Ver la guía online:** https://TU-USUARIO.github.io/algorithms-data-structures-roadmap/
+[**Open the guide →**](https://juanm4ram.github.io/algorithms-data-structures-roadmap/)
+
+![No dependencies](https://img.shields.io/badge/dependencies-none-3a6b4c)
+![No build step](https://img.shields.io/badge/build-none-1f5490)
+![Single file](https://img.shields.io/badge/single%20file-HTML-95571c)
+![Works offline](https://img.shields.io/badge/works-offline-6d675b)
+
+**English** · [Español](README.es.md)
+
+> **Note:** the guide itself is written in **Spanish**, since it follows an Argentine university course. This README is available in both languages.
+
+<br>
+
+<img src="docs/preview-guia.png" alt="The guide showing a part opening and the running thread of the subject" width="880">
+
+</div>
 
 ---
 
-## La idea
+## Preview
 
-La materia parece una pila de temas sueltos, pero tiene una sola idea adentro: **los patrones algorítmicos no cambian, lo único que cambia de una estructura a otra es cómo se accede al dato.**
+| Stepping through a figure | A program explained function by function |
+|---|---|
+| <img src="docs/preview-figura.png" alt="Interactive figure being executed step by step" width="420"> | <img src="docs/preview-caso.png" alt="Full program broken down function by function" width="420"> |
 
-| Estructura | Dónde vive | Llegar al elemento *n* | Avanzar al siguiente |
+---
+
+## Table of contents
+
+- [What this is](#what-this-is)
+- [The one idea behind the whole subject](#the-one-idea-behind-the-whole-subject)
+- [What's inside](#whats-inside)
+- [The five parts](#the-five-parts)
+- [Running it locally](#running-it-locally)
+- [Tech](#tech)
+- [Sources and attribution](#sources-and-attribution)
+- [Contributing](#contributing)
+- [License](#license)
+
+## What this is
+
+A complete course companion packed into **one HTML file**. No installation, no build step, no dependencies, no internet connection required. Double-click it and it opens in any browser.
+
+It covers the full syllabus of a first-year data structures course taught in C/C++: arrays and structs, the four core algorithmic patterns, binary files with direct access, pointers and dynamic memory, linked lists, stacks and queues, and two real exams solved step by step.
+
+It is not a reference manual. It is built to be **read in order**, like a textbook, with each section explaining what it needs from the previous one and what it sets up for the next.
+
+## The one idea behind the whole subject
+
+The course looks like a pile of unrelated topics. It isn't. The algorithmic patterns never change — traverse, search, merge, group. The only thing that changes from one structure to the next is **how you reach the data**.
+
+| Structure | Where it lives | Reaching element *n* | Advancing to the next |
 |---|---|---|---|
-| Vector | Memoria | `v[n]` | `i++` |
-| Archivo | Disco | `fseek(f, n*sizeof(reg), SEEK_SET)` | el propio `fread` |
-| Lista | Memoria, pedida en ejecución | recorriendo desde el principio | `p = p->sig` |
+| Array | Memory | `v[n]` | `i++` |
+| File | Disk | `fseek(f, n*sizeof(reg), SEEK_SET)` | `fread` itself |
+| Linked list | Memory, allocated at runtime | walk from the head | `p = p->sig` |
 
-Esa tabla es el resumen de la materia. Todo lo demás es aprender a elegir cuál de las tres conviene y aplicarle los patrones de siempre.
+That table is the summary of the entire subject. Everything else is learning which of the three to pick, and applying the same four patterns to it. The guide marks this thread explicitly as it recurs.
 
-## Cómo está organizada
+## What's inside
 
-Cinco partes que se leen de corrido. Cada una abre explicando qué necesita de la anterior y cierra indicando qué sigue.
+**Thirteen interactive figures** you step through with buttons, not animations you watch:
 
-1. **El dato y su forma** — tipos, structs y punteros.
-2. **Vectores** — los cuatro patrones: ordenar, buscar, aparear y cortar por grupo.
-3. **Archivos** — los mismos patrones cuando el dato vive en disco.
-4. **Memoria dinámica** — listas, lista de listas, pilas y colas.
-5. **Integración** — parciales y un final resuelto punto por punto.
+| Figure | What it shows |
+|---|---|
+| Bubble sort | How the comparison count shrinks on every pass |
+| Binary search | The window closing in on the target |
+| Merge (arrays) | Comparing heads, consuming the smaller one |
+| Merge (files) | The same algorithm with `fread`/`fwrite` instead of indices |
+| Control break | Grouped listing with subtotals, built row by row |
+| Pointers | Two memory cells, the address and the value, line by line |
+| By value vs by reference | Why one modifies the original and the other doesn't |
+| `fseek` / `ftell` | Moving the file pointer in bytes |
+| Ordered insert | How the pointers get relinked on each of the three cases |
+| Stack | Push, pop, and why reading destroys the node |
+| List of lists | A two-level structure built record by record from a file |
 
-## Qué incluye
+**A full program explained function by function** — reading `ALUMNOS.DAT` into a list of divisions, each with its own sorted sublist of students: `main`, `buscar`, `insertarOrdenadoLP`, `insertarSinRepetir`, `insertarOrdenadoLS`, `procesarArchivo`, `mostrarListado` and `liberarListas`, with memory diagrams and a table of the mistakes that cost marks.
 
-- **Trece figuras interactivas** que se ejecutan paso a paso: burbuja, búsqueda binaria, apareo de vectores y de archivos, corte de control, punteros en memoria, pasaje por valor y por referencia, `fseek`/`ftell`, insertar ordenado en una lista, pila con auxiliar, y la construcción de una lista de listas registro por registro.
-- **Un caso completo explicado función por función**: un programa que lee `ALUMNOS.DAT` y arma una lista de divisiones con sublistas de alumnos, con el análisis de cada función, diagramas de memoria y los errores típicos que hacen perder puntos.
-- **Archivos a fondo**: `fopen` y sus modos, lectura anticipada, `feof`, acceso directo, la función `cantReg`, los cinco pasos para modificar un registro y el apareo directo entre archivos.
-- **Un final real resuelto** (06/03/2023) con las soluciones colapsables para intentarlas antes de mirar.
-- Términos con definición al pasar el cursor, autoevaluaciones, barra de progreso, y modo claro / noche.
+**A real final exam solved** (2023-03-06), each question with a collapsible solution so you can attempt it first.
 
-## Cómo usarlo
+Plus hover definitions on key terms, self-check questions, a reading-progress bar, and light/dark themes.
 
-Descargá o cloná el repo y abrí `index.html` en cualquier navegador:
+## The five parts
+
+1. **Data and its shape** — types, structs, pointers, and who is allowed to modify a value.
+2. **Arrays** — the four patterns: sort, search, merge, control break.
+3. **Files** — the same patterns once the data lives on disk.
+4. **Dynamic memory** — linked lists, lists of lists, stacks and queues.
+5. **Integration** — midterm and final exams, solved.
+
+## Running it locally
 
 ```bash
-git clone https://github.com/TU-USUARIO/algorithms-data-structures-roadmap.git
+git clone https://github.com/juanm4ram/algorithms-data-structures-roadmap.git
+cd algorithms-data-structures-roadmap
 ```
 
-También podés usarlo online desde el enlace de arriba.
+Then open `index.html` in any browser. That's the whole setup.
 
-## Sobre las fuentes
+## Tech
 
-La guía se construyó a partir de las transcripciones de las clases grabadas del curso, los apuntes de cátedra (Unidades 01 a 10, Dr. Oscar Bruno) y exámenes de años anteriores.
+Plain HTML, CSS and JavaScript in a single file. No frameworks, no bundler, no CDN, no external fonts. Diagrams are hand-written and script-generated SVG; theming is done with CSS custom properties, which is also how the figures stay readable in both light and dark mode.
 
-**Ese material no se incluye en este repositorio**, por dos razones: no es de mi autoría y las transcripciones contienen intervenciones de docentes y compañeros de cursada. Acá se publica únicamente la guía, que es una elaboración propia sobre esos contenidos.
+The file is self-contained on purpose: a study guide you cannot open during a power cut or without Wi-Fi is not much of a study guide.
 
-Si algo de lo explicado no coincide con lo que se dictó, manda siempre lo que diga la cátedra.
+## Sources and attribution
 
-## Stack
+Built from transcripts of the recorded lectures, the course notes (Units 01–10, Dr. Oscar Bruno) and past exams.
 
-Nada. HTML, CSS y JavaScript en un solo archivo, sin frameworks, sin build, sin CDN. Los diagramas son SVG generados a mano y por script; el tema se maneja con variables CSS.
+**That source material is deliberately not included in this repository.** It is not mine to publish, and the transcripts contain the voices of teaching staff and fellow students. What is published here is the guide itself, which is my own work based on those contents.
+
+If anything here contradicts what your instructor says, go with your instructor.
+
+## Contributing
+
+Found an error, a typo, or an explanation that doesn't hold up? Open an issue. Corrections to the technical content are especially welcome — this is study material, and a wrong explanation is worse than no explanation.
+
+## License
+
+The guide is shared for study purposes under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/): use it, adapt it and share it freely, with attribution and non-commercially. The underlying course material belongs to its authors.
 
 ---
 
-*Hecho para cursar y aprobar AyED. Si te sirve, dejá una estrella.*
+<div align="center">
+<sub>Made while studying for this exam. If it helps you, leave a star.</sub>
+</div>
